@@ -1,8 +1,8 @@
-import Form from '@components/Form';
-import List from '@components/List';
-import React from 'react';
+import Form from "@components/Form"
+import List from "@components/List"
+import React from "react"
 
-import { Container } from './styles';
+import { Container } from "./styles"
 
 const Layout: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
       <Form />
       <List />
     </Container>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

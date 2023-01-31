@@ -1,24 +1,35 @@
-import {
-  CandidateProps,
-  editCandidate,
-  removeCandidate,
-  toggleCandidate,
-} from "@features/candidates/candidates-slice"
-import React, { useRef } from "react"
+import { setAppContext } from "@features/app-context"
+import { CandidateProps, removeCandidate, toggleCandidate } from "@features/candidates"
+import { useAppSelector } from "@root/store"
+import React from "react"
 import { useDispatch } from "react-redux"
 
 import { Container } from "./styles"
 
 const Candidate: React.FC<CandidateProps> = props => {
-  const cardRef = useRef<HTMLDivElement>(null)
+  const { appContext } = useAppSelector(state => state)
   const dispatch = useDispatch()
 
   function handleDeleteClick(candidateID: number) {
+    dispatch(
+      setAppContext({
+        context: null,
+        id: null,
+        stage: null,
+      })
+    )
     dispatch(removeCandidate(candidateID))
   }
 
   function handleEditClick(candidateID: number) {
-    dispatch(editCandidate(candidateID))
+    dispatch(
+      setAppContext({
+        ...appContext,
+        context: "editing",
+        stage: 0,
+        id: candidateID,
+      })
+    )
   }
 
   function handleToggleClick(candidateID: number) {
@@ -26,7 +37,7 @@ const Candidate: React.FC<CandidateProps> = props => {
   }
 
   return (
-    <Container className={props.active ? "done" : ""}>
+    <Container className={props.done ? "done" : ""}>
       <div>
         <h3>{props.name}</h3>
         <p>{props.city}</p>
@@ -44,7 +55,7 @@ const Candidate: React.FC<CandidateProps> = props => {
       </div>
       <div style={{ gridArea: "buttons" }}>
         <button onClick={() => handleToggleClick(props.id)} className="item-toggle">
-          {props.active ? 'Descompletar' : 'Completar'}
+          {props.done ? "Descompletar" : "Completar"}
         </button>
         <button onClick={() => handleEditClick(props.id)} className="item-edit">
           Editar

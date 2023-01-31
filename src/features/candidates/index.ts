@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction"
-import { getFilteredCandidate, toggleCandidateActive } from "@utils/getFiltered"
+import { getCandidateIndex, getFilteredCandidate, patchCandidates, toggleCandidateActive } from "@utils/index"
 
 export type CandidateProps = {
   id: number
-  active: boolean
+  done: boolean
   name: string
   age: number
   city: string
@@ -14,7 +14,7 @@ export type CandidateProps = {
 const initialState: CandidateProps[] = [
   {
     id: 0,
-    active: false,
+    done: false,
     age: 18,
     city: "São Leopoldo",
     name: "Rodrigo Silva",
@@ -34,7 +34,10 @@ export const candidatesSlicer = createSlice({
       const filteredCandidates = getFilteredCandidate(state, action.payload)
       return filteredCandidates
     },
-    editCandidate: (state, action: PayloadAction<number>) => {},
+    editCandidate: (state, action: PayloadAction<CandidateProps>) => {
+      const candidatesWithUpdatedOne = patchCandidates(state, action.payload)
+      return candidatesWithUpdatedOne
+    },
     toggleCandidate: (state, action: PayloadAction<number>) => {
       const candidatesWithToggledOne = toggleCandidateActive(state, action.payload)
       return candidatesWithToggledOne

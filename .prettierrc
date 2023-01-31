@@ -1,7 +1,7 @@
 {
-    "tabWidth": 2,
-    "semi": false,
-    "arrowParens": "avoid",
-    "bracketSameLine": true,
-    "printWidth": 100
+  "tabWidth": 2,
+  "semi": false,
+  "arrowParens": "avoid",
+  "bracketSameLine": true,
+  "printWidth": 120
 }
