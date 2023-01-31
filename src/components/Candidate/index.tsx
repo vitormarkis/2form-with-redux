@@ -1,9 +1,15 @@
-import { CandidateProps } from '@features/candidates/candidates-slice';
+import { CandidateProps, removeCandidate } from '@features/candidates/candidates-slice';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Container } from './styles';
 
 const Candidate: React.FC<CandidateProps> = props => {
+  const dispatch = useDispatch()
+  
+  function handleDeleteClick (candidateID: number) {
+    dispatch(removeCandidate(candidateID))
+  }
   return (
     <Container>
       <div>
@@ -24,7 +30,7 @@ const Candidate: React.FC<CandidateProps> = props => {
       <div style={{gridArea: "buttons"}}>
         <button className='item-toggle'>Completar</button>
         <button className='item-edit'>Editar</button>
-        <button className='item-delete'>Deletar</button>
+        <button onClick={() => handleDeleteClick(props.id)} className='item-delete'>Deletar</button>
       </div>
     </Container>
   );

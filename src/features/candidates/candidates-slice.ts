@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, current } from "@reduxjs/toolkit"
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction"
+import { getFilteredCandidate } from "@utils/getFiltered"
 
 export type CandidateProps = {
   id: number
@@ -24,11 +25,16 @@ export const candidatesSlicer = createSlice({
   initialState,
   reducers: {
     addNewCandidate: (state, action: PayloadAction<CandidateProps>) => {
-      return [action.payload, ...state]
+      const candidatesWithNewOne = [action.payload, ...state]
+      return candidatesWithNewOne
     },
+    removeCandidate: (state, action: PayloadAction<number>) => {
+      const filteredCandidates = getFilteredCandidate(state, action.payload)
+      return filteredCandidates
+    }
   },
 })
 
-export const { addNewCandidate } = candidatesSlicer.actions
+export const { addNewCandidate, removeCandidate } = candidatesSlicer.actions
 
 export const candidateReducer = candidatesSlicer.reducer
