@@ -5,6 +5,7 @@ export const Container = styled.form`
 `;
 
 export const Fieldset = styled.fieldset`
+background-color: #fff;
   border: 1px solid #757575;
   padding: 3rem;
   border-radius: 1rem;

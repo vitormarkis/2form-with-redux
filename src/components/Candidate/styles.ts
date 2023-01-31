@@ -1,18 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const Container = styled.div`
-background-color: #fff;
-flex-grow: 1;
+  background-color: #fff;
+  flex-grow: 1;
   display: grid;
   padding: 4rem;
-  border-radius: 3rem;
-  border-top: 2rem solid #a42cd6;
   border-bottom: 2px solid #00000020;
+  border-inline: 2px solid #00000020;
   gap: 1rem 2rem;
-  box-shadow: 0 1rem 2rem #00000017;
+  /* box-shadow: 0 1rem 2rem #00000017; */
+  margin-top: 2rem;
+  box-shadow: 0 -2rem 0 #a42cd6;
   grid-template-areas:
-    'texts    age'
-    'projects projects';
+    "texts    age"
+    "projects projects";
   line-height: 1;
 
   & div:nth-of-type(1) {
@@ -21,6 +22,7 @@ flex-grow: 1;
 
     h3 {
       color: #a42cd6;
+      white-space: nowrap;
     }
 
     p {
@@ -76,4 +78,4 @@ flex-grow: 1;
       color: #444;
     }
   }
-`;
+`

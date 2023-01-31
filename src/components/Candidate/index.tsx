@@ -1,4 +1,4 @@
-import { CandidateProps } from 'features/candidates/candidates-slice';
+import { CandidateProps } from '@features/candidates/candidates-slice';
 import React from 'react';
 
 import { Container } from './styles';

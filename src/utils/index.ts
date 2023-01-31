@@ -1,4 +1,4 @@
-import { CandidateProps } from "features/candidates/candidates-slice"
+import { CandidateProps } from "@features/candidates/candidates-slice"
 
 export function getLastID(candidates: CandidateProps[]): number {
   if (candidates.length === 0) return 0

@@ -1,17 +1,19 @@
+import { useAppSelector } from '@root/store';
 import React from 'react';
-import { useAppSelector } from '../../store';
 import Candidate from '../Candidate';
 
-import { Container } from './styles';
+import { CandidatesContainer, Container } from './styles';
 
 const List: React.FC = () => {
   const { candidates } = useAppSelector(state => state);
   return (
     <Container>
+      <CandidatesContainer>
       {candidates &&
         candidates.map(candidate => (
           <Candidate key={candidate.id} {...candidate}></Candidate>
         ))}
+      </CandidatesContainer>
     </Container>
   );
 };
