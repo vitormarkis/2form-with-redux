@@ -21,6 +21,11 @@ const Candidate: React.FC<CandidateProps> = props => {
           <span>{props.projects}</span> projetos
         </p>
       </div>
+      <div style={{gridArea: "buttons"}}>
+        <button className='item-toggle'>Completar</button>
+        <button className='item-edit'>Editar</button>
+        <button className='item-delete'>Deletar</button>
+      </div>
     </Container>
   );
 };

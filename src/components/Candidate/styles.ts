@@ -13,7 +13,8 @@ export const Container = styled.div`
   box-shadow: 0 -2rem 0 #a42cd6;
   grid-template-areas:
     "texts    age"
-    "projects projects";
+    "projects projects"
+    "buttons buttons";
   line-height: 1;
 
   & div:nth-of-type(1) {
@@ -76,6 +77,32 @@ export const Container = styled.div`
       display: flex;
       flex-shrink: 0;
       color: #444;
+    }
+  }
+  & div:nth-of-type(4) {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    
+    > button {
+      flex: 1 0 0;
+    }
+    
+    button {
+      padding: 1rem;
+      color: white;
+    }
+
+    .item-delete {
+      background-color: #ee6352;
+    }
+
+    .item-edit {
+      background-color: #08b2e3;
+    }
+    
+    .item-toggle {
+      background-color: #57a773;
     }
   }
 `
