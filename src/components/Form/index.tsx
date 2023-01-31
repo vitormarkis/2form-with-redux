@@ -102,7 +102,7 @@ const Form: React.FC = () => {
       setFields(candidate)
     }
     if ( appContext.context === null ) resetFields()
-  }, [appContext.id])
+  }, [appContext.id, candidates])
 
   return (
     <Container>
