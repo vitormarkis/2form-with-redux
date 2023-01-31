@@ -1,6 +1,37 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+  &.done {
+    background-color: #eee;
+    box-shadow: 0 -2rem 0 hsl(282deg 67% 25%);
+
+    & button {
+      background-color: #757575 !important;
+    }
+
+    & div:nth-of-type(1) {
+      h3 {
+        color: #757575;
+      }
+    }
+
+    & div:nth-of-type(2) {
+      p {
+        color: #757575;
+      }
+    }
+    & div:nth-of-type(3) {
+      span {
+        color: #757575;
+      }
+      & > div {
+        div {
+          background-color: #757575;
+        }
+      }
+    }
+  }
+
   background-color: #fff;
   flex-grow: 1;
   display: grid;
@@ -83,11 +114,11 @@ export const Container = styled.div`
     display: flex;
     gap: 3rem;
     padding-top: 2rem;
-    
+
     > button {
       flex: 1 0 0;
     }
-    
+
     button {
       padding: 1rem;
       color: white;
@@ -100,7 +131,7 @@ export const Container = styled.div`
     .item-edit {
       background-color: #08b2e3;
     }
-    
+
     .item-toggle {
       background-color: #57a773;
     }

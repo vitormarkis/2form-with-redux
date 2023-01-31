@@ -18,3 +18,16 @@ export function getCandidateIndex(candidates: CandidateProps[], candidateID: num
   const candidateIndex = candidates.indexOf(candidate)
   return candidateIndex
 }
+
+export function toggleCandidateActive(originalCandidates: CandidateProps[], candidateID: number) {
+  const candidates = [...originalCandidates]
+  const candidatesWithToggledOne = candidates.map(candidate =>
+    candidate.id === candidateID ? { ...candidate, active: !candidate.active } : candidate
+  )
+  return candidatesWithToggledOne
+}
+
+export function toggleClassName(HTMLElement: HTMLDivElement | null, className: string): void {
+  if (HTMLElement === null) return
+  HTMLElement.classList.toggle(className)
+}

@@ -21,6 +21,7 @@ export function createNewCandidateObject(
   projects = Number(projects)
   return {
     id: 1 + lastID,
+    active: false,
     name,
     age,
     city,
